@@ -1,7 +1,7 @@
 class DeviseTokenAuth::RegistrationsController < ApplicationController
 
 	def create
-		@user = User.new(email: params[0].value, password: params[1].value, password_confirmation: params[2].value)
+		@user = User.new(email: params["email"], password: params["password"], password_confirmation: params["password_confirmation"])
 		@user.save
 		render json: {
 			status: 200,
